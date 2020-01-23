@@ -37,9 +37,9 @@ class CityWeather extends Component {
 
   handleChange = selectedOption => {
 
-    this.setState({selectedOption})
+    this.setState({selectedOption: selectedOption, isLoaded: false})
 
-    fetch(apiURL+'?q='+'toronto'+'&APPID='+apiID+'&units=metric', {
+    fetch(apiURL+'?q='+ _.get(selectedOption, 'value')+'&APPID='+apiID+'&units=metric', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -50,17 +50,13 @@ class CityWeather extends Component {
     .then(response => response.json())
     // ...then we update the users state
     .then(data =>
-      this.setState(
-        { selectedOption },
-        () => {
-          this.setState({
-            items: data
-          });
-        },
-      )
+      this.setState({
+        items: data,
+        isLoaded: true
+      })
     )
     // Catch any errors we hit and update the app
-    .catch(error => this.setState({ error, isLoading: false }));
+    .catch(error => this.setState({ error, isLoaded: false }));
   };
 
   render() {
@@ -81,12 +77,12 @@ class CityWeather extends Component {
                   placeholder = {'Select a city...'}
                 />
 
-                <div className={this.state.selectedOption && _.get(this.state, 'selectedOption.value') !== ''? 'table100 ver1 m-b-110' : 'hidden'} style = {{marginTop: "20px"}}>
+                <div className={this.state.isLoaded ? 'table100 ver1 m-b-110' : 'hidden'} style = {{marginTop: "20px"}}>
                   <div className="table100-head">
                     <table>
                       <thead>
                         <tr className="row100 head">
-                          <th className="cell100 column1">{_.get(this.state, 'selectedOption.value')} Weather over React</th>
+                          <th className="cell100 column1">{_.get(this.state, 'items.name')} Weather over React</th>
                         </tr>
                       </thead>
                     </table>
