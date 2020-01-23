@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/weather-react/static/css/main.60b79e84.chunk.css",
-    "main.js": "/weather-react/static/js/main.ec302758.chunk.js",
-    "main.js.map": "/weather-react/static/js/main.ec302758.chunk.js.map",
+    "main.js": "/weather-react/static/js/main.5dceec1e.chunk.js",
+    "main.js.map": "/weather-react/static/js/main.5dceec1e.chunk.js.map",
     "runtime-main.js": "/weather-react/static/js/runtime-main.523c1278.js",
     "runtime-main.js.map": "/weather-react/static/js/runtime-main.523c1278.js.map",
-    "static/js/2.5892fbc6.chunk.js": "/weather-react/static/js/2.5892fbc6.chunk.js",
-    "static/js/2.5892fbc6.chunk.js.map": "/weather-react/static/js/2.5892fbc6.chunk.js.map",
+    "static/js/2.60b8378f.chunk.js": "/weather-react/static/js/2.60b8378f.chunk.js",
+    "static/js/2.60b8378f.chunk.js.map": "/weather-react/static/js/2.60b8378f.chunk.js.map",
     "index.html": "/weather-react/index.html",
-    "precache-manifest.ce65f29627a80b5f69520e878728d445.js": "/weather-react/precache-manifest.ce65f29627a80b5f69520e878728d445.js",
+    "precache-manifest.778b53c60243a9fabcdc8032e2e73434.js": "/weather-react/precache-manifest.778b53c60243a9fabcdc8032e2e73434.js",
     "service-worker.js": "/weather-react/service-worker.js",
     "static/css/main.60b79e84.chunk.css.map": "/weather-react/static/css/main.60b79e84.chunk.css.map",
-    "static/js/2.5892fbc6.chunk.js.LICENSE": "/weather-react/static/js/2.5892fbc6.chunk.js.LICENSE",
+    "static/js/2.60b8378f.chunk.js.LICENSE": "/weather-react/static/js/2.60b8378f.chunk.js.LICENSE",
     "static/media/main.css": "/weather-react/static/media/Lato-Regular.7f690e50.ttf",
     "static/media/font-awesome.min.css": "/weather-react/static/media/fontawesome-webfont.fee66e71.woff",
     "static/media/logo.svg": "/weather-react/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.523c1278.js",
-    "static/js/2.5892fbc6.chunk.js",
+    "static/js/2.60b8378f.chunk.js",
     "static/css/main.60b79e84.chunk.css",
-    "static/js/main.ec302758.chunk.js"
+    "static/js/main.5dceec1e.chunk.js"
   ]
 }

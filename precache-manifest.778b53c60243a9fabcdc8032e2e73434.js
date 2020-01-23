@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2407a45029baed504ab21429a65330ce",
+    "revision": "5073dfdb0c93654790f1de3919499d79",
     "url": "/weather-react/index.html"
   },
   {
-    "revision": "4afcd19849dd086da675",
+    "revision": "10300c5d89dc5cf02b0e",
     "url": "/weather-react/static/css/main.60b79e84.chunk.css"
   },
   {
-    "revision": "d20863988dc56e157496",
-    "url": "/weather-react/static/js/2.5892fbc6.chunk.js"
+    "revision": "040b241ae78135df0181",
+    "url": "/weather-react/static/js/2.60b8378f.chunk.js"
   },
   {
     "revision": "6aeb469c0c20fd3334c86de961c4692c",
-    "url": "/weather-react/static/js/2.5892fbc6.chunk.js.LICENSE"
+    "url": "/weather-react/static/js/2.60b8378f.chunk.js.LICENSE"
   },
   {
-    "revision": "4afcd19849dd086da675",
-    "url": "/weather-react/static/js/main.ec302758.chunk.js"
+    "revision": "10300c5d89dc5cf02b0e",
+    "url": "/weather-react/static/js/main.5dceec1e.chunk.js"
   },
   {
     "revision": "f0345a52712c5a71aa45",
