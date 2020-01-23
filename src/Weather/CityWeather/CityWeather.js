@@ -11,6 +11,7 @@ import '../../assets/vendor/perfect-scrollbar/perfect-scrollbar.css'
 import '../../assets/css/util.css'
 import '../../assets/css/main.css'
 
+
 const options = [
   { value: 'Toronto', label: 'Toronto' },
   { value: 'Vancouver', label: 'Vancouver' },
@@ -19,19 +20,50 @@ const options = [
   { value: 'Quebec', label: 'Quebec' },
 ];
 
+const apiURL = 'https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather';
+const apiID = 'c03531387aed7cd065a19cc3e1191d2a';
+
 class CityWeather extends Component {
-  state = {
-    selectedOption: null,
-  };
+
+  constructor(props) {
+     super(props);
+     this.state = {
+       selectedOption: null,
+       error: null,
+       isLoaded: false,
+       items: []
+     };
+   }
+
   handleChange = selectedOption => {
-    this.setState(
-      { selectedOption },
-      () => console.log(`Option selected:`, _.get(this.state, 'selectedOption.value'))
-    );
+
+    this.setState({selectedOption})
+
+    fetch(apiURL+'?q='+'toronto'+'&APPID='+apiID+'&units=metric', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    })
+    // We get the API response and receive data in JSON format...
+    .then(response => response.json())
+    // ...then we update the users state
+    .then(data =>
+      this.setState(
+        { selectedOption },
+        () => {
+          this.setState({
+            items: data
+          });
+        },
+      )
+    )
+    // Catch any errors we hit and update the app
+    .catch(error => this.setState({ error, isLoading: false }));
   };
 
   render() {
-    const { selectedOption } = this.state;
 
     return (
 
@@ -43,13 +75,13 @@ class CityWeather extends Component {
               <div className="wrap-table100">
 
                 <Select
-                  value={selectedOption}
+                  value={this.state.selectedOption}
                   onChange={this.handleChange}
                   options={options}
                   placeholder = {'Select a city...'}
                 />
 
-                <div className={this.state.selectedOption && _.get(this.state, 'selectedOption.value') != ''? 'table100 ver1 m-b-110' : 'hidden'} style = {{marginTop: "20px"}}>
+                <div className={this.state.selectedOption && _.get(this.state, 'selectedOption.value') !== ''? 'table100 ver1 m-b-110' : 'hidden'} style = {{marginTop: "20px"}}>
                   <div className="table100-head">
                     <table>
                       <thead>
@@ -64,22 +96,22 @@ class CityWeather extends Component {
                     <table>
                       <tbody>
                         <tr className="row100 body">
-                          <td className="cell100 column1">Description: </td>
+                          <td className="cell100 column1">Description: {_.get(this.state, 'items.weather[0].description')}</td>
                         </tr>
                         <tr className="row100 body">
-                          <td className="cell100 column1">Temperature: &#8451;</td>
+                          <td className="cell100 column1">Temperature: {_.get(this.state, 'items.main.temp')} &#8451;</td>
                         </tr>
                         <tr className="row100 body">
-                          <td className="cell100 column1">Feels Like: &#8451;</td>
+                          <td className="cell100 column1">Feels Like: {_.get(this.state, 'items.main.feels_like')} &#8451;</td>
                         </tr>
                         <tr className="row100 body">
-                          <td className="cell100 column1">Humidity: %</td>
+                          <td className="cell100 column1">Humidity: {_.get(this.state, 'items.main.humidity')}%</td>
                         </tr>
                         <tr className="row100 body">
-                          <td className="cell100 column1">Longitude: </td>
+                          <td className="cell100 column1">Longitude: {_.get(this.state, 'items.coord.lon')}</td>
                         </tr>
                         <tr className="row100 body">
-                          <td className="cell100 column1">Latitude: </td>
+                          <td className="cell100 column1">Latitude: {_.get(this.state, 'items.coord.lat')}</td>
                         </tr>
                       </tbody>
                     </table>
